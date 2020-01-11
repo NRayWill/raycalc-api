@@ -56,7 +56,7 @@ class CalcController extends AbstractController
     {
         $content = '<script src="https://rawcdn.githack.com/oscarmorrison/md-page/master/md-page.js">'
             .'</script><noscript>';
-        $content .= file_get_contents("readme.md");
+        $content .= file_get_contents("README.md");
 
         return new Response(
             $content
