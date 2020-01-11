@@ -1,0 +1,401 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "REST API calcularor",
+        "contact": {
+            "name": "Ravil Nagimov",
+            "email": "nagimov.ravil@gmail.com"
+        },
+        "version": "1.0"
+    },
+    "paths": {
+        "/calc/add": {
+            "get": {
+                "tags": [
+                    "add"
+                ],
+                "summary": "Returns summ of 2 or 3 numbers",
+                "description": "Returns summ of 2 or 3 numbers A + B( + C) in a JSON",
+                "operationId": "addGet",
+                "parameters": [
+                    {
+                        "name": "A",
+                        "in": "query",
+                        "description": "First number",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": 100
+                    },
+                    {
+                        "name": "B",
+                        "in": "query",
+                        "description": "Second number",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": 50
+                    },
+                    {
+                        "name": "C",
+                        "in": "query",
+                        "description": "Third number",
+                        "required": false,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "message": {
+                                                "description": "[GET] Addition function",
+                                                "type": "string",
+                                                "example": "100+50+1=151"
+                                            },
+                                            "result": {
+                                                "description": "[GET] Addition function",
+                                                "type": "string",
+                                                "example": "151"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "add"
+                ],
+                "summary": "Returns summ of 2 or 3 numbers",
+                "description": "Returns summ of 2 or 3 numbers A + B( + C) in a JSON",
+                "operationId": "addPost",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "required": [
+                                    "A",
+                                    "B"
+                                ],
+                                "properties": {
+                                    "A": {
+                                        "description": "[POST] Addition function",
+                                        "type": "number"
+                                    },
+                                    "B": {
+                                        "description": "[POST] Addition function",
+                                        "type": "number"
+                                    },
+                                    "C": {
+                                        "description": "[POST] Addition function",
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "A": 111,
+                                    "B": "222",
+                                    "C": "333"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "message": {
+                                                "description": "[POST] Addition function",
+                                                "type": "string",
+                                                "example": "100+50=150"
+                                            },
+                                            "result": {
+                                                "description": "[POST] Addition function",
+                                                "type": "string",
+                                                "example": "150"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/calc/sub": {
+            "get": {
+                "tags": [
+                    "sub"
+                ],
+                "summary": "Subtraction function",
+                "description": "Subtraction function. A - minuend, B - subtrahend",
+                "operationId": "subGet",
+                "parameters": [
+                    {
+                        "name": "A",
+                        "in": "query",
+                        "description": "First number",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": 100
+                    },
+                    {
+                        "name": "B",
+                        "in": "query",
+                        "description": "Second number",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": 50
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "message": {
+                                                "description": "[GET] Subtraction function. A - minuend, B - subtrahend.",
+                                                "type": "string",
+                                                "example": "100-50=50"
+                                            },
+                                            "result": {
+                                                "description": "[GET] Subtraction function. A - minuend, B - subtrahend.",
+                                                "type": "string",
+                                                "example": "50"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "sub"
+                ],
+                "summary": "Subtraction function",
+                "description": "Subtraction function. A - minuend, B - subtrahend",
+                "operationId": "subPost",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Params2"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "message": {
+                                                "description": "[POST] Subtraction function. A - minuend, B - subtrahend.",
+                                                "type": "string",
+                                                "example": "100-50=50"
+                                            },
+                                            "result": {
+                                                "description": "[POST] Subtraction function. A - minuend, B - subtrahend.",
+                                                "type": "string",
+                                                "example": "50"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/calc/mul": {
+            "get": {
+                "tags": [
+                    "mul"
+                ],
+                "summary": "Multiplication function",
+                "description": "Multiplication function A*B",
+                "operationId": "mulGet",
+                "parameters": [
+                    {
+                        "name": "A",
+                        "in": "query",
+                        "description": "First number",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": 111
+                    },
+                    {
+                        "name": "B",
+                        "in": "query",
+                        "description": "Second number",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": 222
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "message": {
+                                                "description": "[GET] Multiplication function",
+                                                "type": "string",
+                                                "example": "100*50=5000"
+                                            },
+                                            "result": {
+                                                "description": "[GET] Multiplication function",
+                                                "type": "string",
+                                                "example": "5000"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "mul"
+                ],
+                "summary": "Multiplication function",
+                "description": "Multiplication function A*B",
+                "operationId": "mulPost",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Params2"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "message": {
+                                                "description": "[POST] Multiplication function",
+                                                "type": "string",
+                                                "example": "100*50=5000"
+                                            },
+                                            "result": {
+                                                "description": "[POST] Multiplication function",
+                                                "type": "string",
+                                                "example": "5000"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Params2": {
+                "required": [
+                    "A",
+                    "B"
+                ],
+                "properties": {
+                    "A": {
+                        "type": "number",
+                        "example": 100
+                    },
+                    "B": {
+                        "type": "number",
+                        "example": 50
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}

@@ -1,0 +1,24 @@
+# Codeception Test Suite Configuration
+#
+# Suite for functional tests
+# Emulate web requests and make application process them
+# Include one of framework modules (Symfony2, Yii2, Laravel5) to use it
+# Remove this suite if you don't use frameworks
+
+actor: FunctionalTester
+modules:
+    enabled:
+        - PhpBrowser:
+            url: http://localhost:8000
+        # - Symfony:
+        #     app_path: 'src'
+        #     environment: 'test'
+#        - Doctrine2:
+#            depends: Symfony
+#            cleanup: true
+        - \App\Tests\Helper\Functional
+        - REST:
+            depends: PhpBrowser
+            # url: 'http://serviceapp/api/v1/'
+            url: http://localhost:8000
+            shortDebugResponse: 300 # only the first 300 chars of the response

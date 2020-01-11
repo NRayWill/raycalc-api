@@ -1,0 +1,5 @@
+hb_swagger_ui:
+    directory: "%kernel.root_dir%/../docs/"
+    files:
+      - "/_swagger/swagger.json"
+      
